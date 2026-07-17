@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "6CX58MQVF2.com.vishakarexshotspot",
+        "paths": [
+          "/competition/register/*",
+          "/competition/web-reset-password/*",
+          "/competition/*"
+        ]
+      }
+    ]
+  }
+}

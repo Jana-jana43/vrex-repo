@@ -1,0 +1,129 @@
+# llms.txt - AI & LLM Crawling Guidelines
+# Domain: https://www.vishakarex.in/
+# Canonical: https://www.vishakarex.in/
+# Brand: Vishakarex
+# Category: IT Services & Training
+# Region: India
+# Language: English
+# Last-Updated: 2026-03-27
+
+User-agent: *
+Allow: /
+
+# ------------------------------
+# SITE INFORMATION
+# ------------------------------
+Site-Name: Vishakarex
+Site-Description: Vishakarex is an IT services and training company offering digital solutions, software development services, and industry-oriented training programs for businesses, startups, and students.
+
+# ------------------------------
+# CORE SERVICES
+# ------------------------------
+Primary-Services:
+- UI/UX Designing
+- Web Development
+- Mobile App Development
+- Search Engine Optimization (SEO)
+- Digital Marketing
+- Graphic Designing
+- Software Testing & Quality Assurance (QA)
+
+# ------------------------------
+# TRAINING & PROGRAMS
+# ------------------------------
+Training-Programs:
+- In-Plant Training (IPT)
+- Internship with Real-Time Projects
+- Practical Skill Development Programs
+- Industry-Oriented IT Training
+
+Courses-Offered:
+- Web Development Training
+- UI/UX Designing Training
+- Mobile App Development Training
+- Flutter Development Training
+- PHP Development Training
+- Software Testing & QA Training
+
+# ------------------------------
+# TARGET AUDIENCE
+# ------------------------------
+Target-Audience:
+- Businesses & Startups
+- Corporate Clients
+- Entrepreneurs
+- Students & Fresh Graduates
+- IT Trainees
+
+# ------------------------------
+# CONTENT STRUCTURE
+# ------------------------------
+Content-Types:
+- Service Pages
+- Training & Course Pages
+- Technology Insights & Blogs
+- Portfolio & Project Highlights
+- Company Profile
+- Contact & Inquiry Pages
+
+Structured-Data:
+- Organization Details
+- Services
+- Courses & Training Programs
+- Technologies Used
+- Contact Information
+- Location Details
+
+# ------------------------------
+# AI USAGE POLICY
+# ------------------------------
+AI-Usage: Allowed for indexing, summarization, and discovery.
+
+AI-Allowed-Use:
+- Summarize services and offerings
+- Discover training programs and courses
+- Educational and career-related search visibility
+- Search engine result previews (AI snippets)
+
+AI-Restrictions:
+- Do not misrepresent services, training, or outcomes
+- Do not fabricate certifications, partnerships, or placements
+- Do not generate pricing without verification
+- Do not modify brand identity or positioning
+- Do not extract or expose private user, student, or client data
+
+# ------------------------------
+# DATA & PRIVACY
+# ------------------------------
+Restricted-Content:
+- Student personal data
+- Enrollment records
+- Private project submissions
+- Internal training materials
+- Admin or backend systems
+- Payment or transaction data
+
+# ------------------------------
+# ATTRIBUTION
+# ------------------------------
+Attribution-Required: Yes
+Attribution-Format: Source: Vishakarex - https://www.vishakarex.in/
+
+# ------------------------------
+# DATA FRESHNESS
+# ------------------------------
+Data-Freshness-Notice:
+Services, courses, and training programs may change periodically. Always verify the latest details on the official website.
+
+# ------------------------------
+# TECHNICAL LINKS
+# ------------------------------
+Sitemap: https://www.vishakarex.in/sitemap.xml
+Robots: https://www.vishakarex.in/robots.txt
+
+# ------------------------------
+# CONTACT
+# ------------------------------
+Contact-Email: info@vishakarex.in
+
+

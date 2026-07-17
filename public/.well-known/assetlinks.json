@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.vishakarexshotspot",
+      "sha256_cert_fingerprints": [
+        "75:59:9A:90:15:67:5D:1F:21:A0:72:42:6C:2D:08:76:1A:1D:B8:F7:1A:D6:4A:93:75:29:85:54:0A:D3:32:ED"
+      ]
+    }
+  }
+]
