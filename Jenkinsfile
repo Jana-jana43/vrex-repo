@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
+        SERVER = "ubuntu@172.31.3.202"
         DEPLOY_PATH = "/var/www/vrex.com"
-        SERVER = "ubuntu@172.31.3.202"   // Private IP of Production Server
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
                         rsync -avz --delete \
                         --exclude='.git' \
                         --exclude='node_modules' \
-                        ./ \$SERVER:\$DEPLOY_PATH/
+                        ./ \$SERVER:/var/www/vrex.com/
                     """
                 }
             }
@@ -34,8 +34,8 @@ pipeline {
                 sshagent(credentials: ['deploy-key']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no \$SERVER '
-                        cd \$DEPLOY_PATH &&
-                        composer install --no-dev --optimize-autoloader
+                            cd /var/www/vrex.com &&
+                            composer install --no-dev --optimize-autoloader
                         '
                     """
                 }
@@ -47,9 +47,11 @@ pipeline {
                 sshagent(credentials: ['deploy-key']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no \$SERVER '
-                        cd \$DEPLOY_PATH &&
-                        sudo chown -R ubuntu:www-data . &&
-                        sudo chmod -R 775 storage bootstrap/cache
+                            sudo chown -R ubuntu:www-data /var/www/vrex.com &&
+                            sudo find /var/www/vrex.com -type d -exec chmod 775 {} \\; &&
+                            sudo find /var/www/vrex.com -type f -exec chmod 664 {} \\; &&
+                            sudo chmod -R 775 /var/www/vrex.com/storage &&
+                            sudo chmod -R 775 /var/www/vrex.com/bootstrap/cache
                         '
                     """
                 }
@@ -61,11 +63,11 @@ pipeline {
                 sshagent(credentials: ['deploy-key']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no \$SERVER '
-                        cd \$DEPLOY_PATH &&
-                        php artisan optimize:clear &&
-                        php artisan config:cache &&
-                        php artisan route:cache &&
-                        php artisan view:cache
+                            cd /var/www/vrex.com &&
+                            php artisan optimize:clear &&
+                            php artisan config:cache &&
+                            php artisan route:cache &&
+                            php artisan view:cache
                         '
                     """
                 }
@@ -75,9 +77,30 @@ pipeline {
         stage('Restart Apache') {
             steps {
                 sshagent(credentials: ['deploy-key']) {
-                    sh "ssh -o StrictHostKeyChecking=no \$SERVER 'sudo systemctl restart apache2'"
+                    sh """
+                        ssh -o StrictHostKeyChecking=no \$SERVER '
+                            sudo systemctl restart apache2
+                        '
+                    """
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            echo "========================================="
+            echo "Deployment Completed Successfully"
+            echo "Server : ${SERVER}"
+            echo "Path   : ${DEPLOY_PATH}"
+            echo "========================================="
+        }
+
+        failure {
+            echo "========================================="
+            echo "Deployment Failed!"
+            echo "Check Jenkins Console Output."
+            echo "========================================="
         }
     }
 }
